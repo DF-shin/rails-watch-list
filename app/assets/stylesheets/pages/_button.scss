@@ -41,16 +41,28 @@
 }
 
 .btn-primary {
-  background: #b300bc;
-  border: 1px solid white;
+  background: #ffffff;
+  color: #b300bc;
   transition: background 0.3s ease;
+  border: 1px solid white;
 
-  &:hover{
-    background: #65006a;
+  &:hover {
+    background-color: white;
+    border: 1px solid white;
+    color: #b300bc;
   }
 }
 
 
-.delete-btn {
-  text-decoration: none;
+.btn-delete-list {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #ff4c4c;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #9d1111;
+    color: white;
+  }
 }
