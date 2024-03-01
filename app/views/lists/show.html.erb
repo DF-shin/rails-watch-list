@@ -1,28 +1,35 @@
 <h1><%= @list.name %></h1>
 
-<%= link_to "Delete",
+<%= link_to "Delete List",
   list_path(@list),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  data: {turbo_method: :delete, turbo_confirm: "This will delete the whole list"}
 %>
+<%= link_to "Add Movie", new_list_bookmark_path(@list) %>
 
-<% @list.movies.each do |movie| %>
-  <li class="list-group-item"><%= movie.title %>
-  <p><%= movie.overview %></p>
-  <%= image_tag(movie.poster_url) %>
-  </li>
-<% end %>
+<h2><strong>Movies</strong></h2>
+<div class="cards-movie-list d-flex">
+  <% @list.movies.each do |movie| %>
+    <div class="card-movie">
+      <%= image_tag(movie.poster_url) %>
 
-<%= link_to "Create Bookmark", new_list_bookmark_path(@list) %>
-<br>
+      <div class="card-movie-info">
+        <h2><%= movie.title %></h2>
+        <p><%= movie.overview %></p>
+      </div>
 
-<p><strong>Bookmarks</strong></p>
-<ul class="list-group">
-  <% @list.bookmarks.each do |bookmark| %>
-    <li class="list-group-item">
-    <%= bookmark.comment %>
-    <%= link_to "Delete",
-    bookmark_path(bookmark),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-    </li>
+      <% @list.bookmarks.each do |bookmark| %>
+        <div class="movie-comment">
+          <% if  movie.id == bookmark.movie_id %>
+            <h3>Comment</h3>
+            <p> <%= bookmark.comment %> </p>
+            <div class="delete">
+              <%= link_to "Delete",
+                bookmark_path(bookmark),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-</ul>
+</div>

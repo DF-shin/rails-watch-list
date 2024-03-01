@@ -1,0 +1,56 @@
+
+.card-movie {
+  overflow: hidden;
+  height: 230xp;
+  width: 230px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+
+  justify-content: center;
+  margin: 5px;
+  flex-wrap: nowrap;
+  flex-direction: column;
+
+  .movie-comment{
+margin-left: 16px;
+
+    h3 {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .delete {
+      text-align: end;
+      margin-top: 25px !important;
+    }
+  }
+}
+
+.card-movie img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-movie h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-movie p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-movie .card-movie-info {
+  padding: 16px;
+}
