@@ -1,5 +1,6 @@
 <h1><%= @list.name %></h1>
 
+<div class="delete-btn"></div>
 <%= link_to "Delete List",
   list_path(@list),
   data: {turbo_method: :delete, turbo_confirm: "This will delete the whole list"}
@@ -25,7 +26,7 @@
             <div class="delete">
               <%= link_to "Delete",
                 bookmark_path(bookmark),
-                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                 class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
             </div>
           <% end %>
         </div>
